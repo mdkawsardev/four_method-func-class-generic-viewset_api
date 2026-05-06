@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'repeat_api',
+        'USER': 'repeat',
+        'PASSWORD': 'repeat123',
+        'HOST': 'localhost',  # Or your database server IP
+        'PORT': '5432',       # Default PostgreSQL port
     }
 }
 
