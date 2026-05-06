@@ -1,3 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
+from genericView.models import Animals
+@admin.register(Animals)
+class AnimalsAdmin(admin.ModelAdmin):
+    list_display = ["Name"]

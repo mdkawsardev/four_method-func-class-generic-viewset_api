@@ -1,3 +1,5 @@
 from django.db import models
+from funcView.models import Students
 
-# Create your models here.
+class Citizen(Students):
+    National_Id = models.IntegerField()
