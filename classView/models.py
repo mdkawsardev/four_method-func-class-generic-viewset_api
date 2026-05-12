@@ -5,4 +5,4 @@ class Citizen(Students):
     National_Id = models.IntegerField()
 
 class FileUpload(models.Model):
-    file = models.ImageField(upload_to='media/')
+    file = models.FileField(upload_to='media/')

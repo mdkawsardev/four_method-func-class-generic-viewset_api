@@ -46,3 +46,9 @@ class ListFiles(APIView):
         queryset = FileUpload.objects.all()
         serializer = FileUploadSerializer(queryset, many=True)
         return Response({"File": serializer.data})
+    def post(self, request, *args, **kwargs):
+        serializer = FileUploadSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"New file added": serializer.data})
+        return Response(serializer.errors)
