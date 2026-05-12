@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from classView.models import Citizen
-from classView.serializers import CitizenSerializer
+from classView.models import Citizen, FileUpload
+from classView.serializers import CitizenSerializer, FileUploadSerializer
 
 class All_data_list(APIView):
     def get(self, request, format=None):
@@ -38,3 +38,11 @@ class All_data_detail(APIView):
         queryset = self.obj(pk)
         queryset.delete()
         return Response({"Data deletion": "Success"})
+
+
+#File handling
+class ListFiles(APIView):
+    def get(self, request):
+        queryset = FileUpload.objects.all()
+        serializer = FileUploadSerializer(queryset, many=True)
+        return Response({"File": serializer.data})
