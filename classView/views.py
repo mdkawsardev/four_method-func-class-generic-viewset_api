@@ -39,7 +39,6 @@ class All_data_detail(APIView):
         queryset.delete()
         return Response({"Data deletion": "Success"})
 
-
 #File handling
 class ListFiles(APIView):
     def get(self, request):
